@@ -32,8 +32,9 @@ namespace MethodReturn
 
             int num1 = Convert.ToInt16(q1Num1Input.Text);
             int num2 = Convert.ToInt16(q1Num2Input.Text);
-           
-            Add(num1, num2); 
+
+            int result = Add(num1, num2);
+            q1Output.Text = $"{num1} + {num2} = {result}";
 
 
 
@@ -47,7 +48,11 @@ namespace MethodReturn
             /// 
             /// Input: 6, 2
             /// The area is 18 units squared
+            double length = Convert.ToDouble(lengthInput.Text);
+            double width = Convert.ToDouble(widthInput.Text);
 
+            double area = GetArea(length, width);
+            q2Output.Text = $"The area is {area} units";
 
 
             /// 3.  Get a value for question 3 and call the PrintPrice 
@@ -63,7 +68,7 @@ namespace MethodReturn
             /// 
             /// Input: 200
             /// The total price is $100.00
-
+            int copies = Convert.ToInt16(copiesInput.Text);
 
 
         }
@@ -72,11 +77,11 @@ namespace MethodReturn
         /// parameters, (x and y), adds them together, and then 
         /// returns the result back to the method call.       
 
-        public void Add(int x, int y)
+        public int Add(int x, int y)
         {
             int sum = x + y;
+            return sum;
 
-            q1Output.Text = $"{x} + {y} = {sum}";
         }
 
 
@@ -84,7 +89,11 @@ namespace MethodReturn
         /// parameters, (x and y), uses them to determine the 
         /// area of a rectangle , and then returns the result 
         /// back to the method call.
-
+        public double GetArea(double length, double width)
+        {
+            double area = length * width;
+            return area;
+        }
 
 
         /// 3. Create a method called PrintPrice, that accepts 1 
@@ -97,7 +106,10 @@ namespace MethodReturn
         /// 11 - 50 prints:  $0.75/print
         /// 51 - 100 prints:  $0.65/print
         /// 101 or over:  $0.50/print
+        //public int PrintPrice(int prints)
+        //{
 
+        //}
 
     }
 }
